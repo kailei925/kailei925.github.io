@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>HPC</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1aece6c1-f051-804e-ace5-f870106479f2" class="page sans"><header><img class="page-cover-image" src="IMG_5331.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon notion-static-icon" src="https://www.notion.so/icons/clipping_gray.svg"/></div><h1 class="page-title">HPC</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/star_gray.svg" style="width:14px;height:14px;display:block"/></span>Favorites</th><td><div class="checkbox checkbox-off"></div></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/book-closed_gray.svg" style="width:14px;height:14px;display:block"/></span>Category</th><td><a href="https://www.notion.so/FUNWAVE-1adce6c1f0518109b7b9d97a1e7318fd?pvs=21"><img class="icon notion-static-icon" src="https://www.notion.so/icons/book-closed_gray.svg"/>FUNWAVE</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-default">Research Tools</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/clock_gray.svg" style="width:14px;height:14px;display:block"/></span>Last edited time</th><td><time>@November 1, 2025 5:27 PM</time></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/archive_gray.svg" style="width:14px;height:14px;display:block"/></span>Archive</th><td><div class="checkbox checkbox-off"></div></td></tr></tbody></table></header><div class="page-body"><h3 id="1aece6c1-f051-8093-95c0-ca57bd292462" class="">Expire Date: <time>@May 2, 2025</time> </h3><h3 id="1b0ce6c1-f051-807d-880e-e5f9d0388444" class="block-color-gray_background">Running Procedure</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1b0ce6c1-f051-8028-a6b0-cf2e4a6acf63"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ol type="1" id="1b0ce6c1-f051-8004-975b-c1f667a06c42" class="numbered-list" start="1"><li>ssh <a href="mailto:kaileicao0925@hpg.rc.ufl.edu">kaileicao0925@hpg.rc.ufl.edu</a></li></ol><ol type="1" id="1b0ce6c1-f051-8074-b657-f6ecdbff3b1f" class="numbered-list" start="2"><li>cd /blue/ashere/kaileicao0925/simulationfolder</li></ol><ol type="1" id="1b0ce6c1-f051-80b7-a69d-e7bc8c6b15b7" class="numbered-list" start="3"><li>use FileZilla to upload your simulation folder (including <strong>input, bathy, tide, gauge and slurm(Job_Sediment)</strong>)</li></ol><ol type="1" id="1b0ce6c1-f051-8036-b442-ce510867f283" class="numbered-list" start="4"><li>nano slurm.sh: enter slurm file and edit it, Ctrl+S is save, Ctrl+X is exit.</li></ol><ol type="1" id="1b0ce6c1-f051-8075-8fb0-d83d9eee7b41" class="numbered-list" start="5"><li>sbatch slurm.sh: submit you slurm task</li></ol></div></figure><ul id="1b0ce6c1-f051-80e0-86d4-f1e70f6dfbb2" class="bulleted-list"><li style="list-style-type:disc">Note that: 3 nodes(equivalent to 3 computers) with 96 cpu in total; </li></ul><ul id="1b0ce6c1-f051-80be-bb49-f18fb1720eae" class="bulleted-list"><li style="list-style-type:disc">Change px and py in input file; </li></ul><ul id="1b0ce6c1-f051-80a8-bf8c-dbebd960d09a" class="bulleted-list"><li style="list-style-type:disc">You can use burst mode with more nodes.</li></ul><ul id="1b0ce6c1-f051-80e8-ab7d-d3705b68e75a" class="bulleted-list"><li style="list-style-type:disc">Never use login mode to run any simulation (cd to /blue/ashere/).</li></ul><h3 id="1aece6c1-f051-80f9-854a-ec62d6b54c43" class="block-color-gray_background">Some important code</h3><div id="1aece6c1-f051-81ae-bdc2-cbd02751921c" class="column-list"><div id="1aece6c1-f051-81a7-bbe9-ce2e443c4d76" style="width:50%" class="column"><hr id="1aece6c1-f051-8194-adeb-e595fa26f4cd"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1aece6c1-f051-8013-aa0d-d64e735d7b8a" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">scancel jobID           # cancel the job on HPC
+squeue -u kaileicao0925 # check job process
+scontrol show job 2484632 | grep StartTime # check running start time</code></pre><p id="1b0ce6c1-f051-806c-8fc2-d6a7e22b41bd" class="">
+</p></div><div id="1aece6c1-f051-8165-89b0-d98e58d3faf8" style="width:50%" class="column"><hr id="1aece6c1-f051-8147-8227-cd659f63d4e6"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1aece6c1-f051-8017-b194-c04342bc2c9e" class="code code-wrap"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">showAllocation      # Check Expiration
+blue_quota          # see the quota information</code></pre><p id="1aece6c1-f051-8041-b546-d8326d28e521" class="">
+</p></div></div><hr id="1aece6c1-f051-8040-b455-c3f0893131bd"/><h3 id="1b0ce6c1-f051-8006-9cac-e4e71fc30123" class="block-color-gray_background">Generate executable file</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1b0ce6c1-f051-80ef-bb20-e2da7012e57d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ol type="1" id="1b0ce6c1-f051-80ac-98ef-df5c7320f0b3" class="numbered-list" start="1"><li>cd FUNWAVE-TVD</li></ol><ol type="1" id="1b0ce6c1-f051-80b1-ba03-f72708c76e15" class="numbered-list" start="2"><li>make clean</li></ol><ol type="1" id="1b0ce6c1-f051-8017-a371-dedc70a22d89" class="numbered-list" start="3"><li>make clobber</li></ol><ol type="1" id="1b0ce6c1-f051-80dd-9050-f346761dbcb5" class="numbered-list" start="4"><li>nano Makefile: change the parameter</li></ol><ol type="1" id="1b0ce6c1-f051-801a-ad8d-d92edb97eac9" class="numbered-list" start="5"><li>module load intel/2025.1.0 openmpi/5.0.7</li></ol><ol type="1" id="1b0ce6c1-f051-803c-b8c7-df88e82f821b" class="numbered-list" start="6"><li>make -f Makefile</li></ol></div></figure><p id="1b0ce6c1-f051-8022-bcf2-eefcfb7c6ce5" class="">Then executable file will appear in funwave-work folder.</p><p id="1b0ce6c1-f051-805f-bf1e-ed4f7688e6e1" class="block-color-orange_background"><strong>Suggestion</strong>: keep executable file in a specific folder and give this directory to slurm file. because if you make clean, it will delete the executable file.</p><hr id="1aece6c1-f051-8126-8829-c0d9161fe1b4"/><h3 id="1b0ce6c1-f051-8015-88f0-fbb1bb0a1744" class="block-color-gray_background">Slurm file</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b0ce6c1-f051-80ce-98b2-d0c8c89e94dc" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
+#SBATCH --job-name=oysterIrr
+#SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=kaileicao0925@ufl.edu  # Where to send mail
+#SBATCH --nodes=3
+#SBATCH --ntasks=96
+#SBATCH --ntasks-per-node=32         # Maximum number of tasks on each node
+#SBATCH --cpus-per-task=1            # Number of CPU cores per task
+#SBATCH --distribution=cyclic:cyclic
+#SBATCH --mem=50gb                    # Total memory limit
+#SBATCH --time=12:00:00              # Time limit hrs:min:sec
+#SBATCH --output=FW_%j.out     # Standard output and error log
+#SBATCH --qos=ashere-b       # burst mode
+
+pwd; hostname; date
+
+echo &quot;Running prime number generator program on $SLURM_CPUS_ON_NODE CPU cores&quot;
+module load intel/2025.1.0 openmpi/5.0.7
+
+srun --cpus-per-task=$SLURM_CPUS_PER_TASK --mpi=pmix_v3 /blue/ashere/kaileicao0925/Executable/SedimentMod_Exc</code></pre><div id="1aece6c1-f051-808c-a4ec-e2b7c50a380e" class="column-list"><div id="1aece6c1-f051-8149-8e6f-d955ceacd788" style="width:43.75%" class="column"><h3 id="1aece6c1-f051-815c-8dce-da562a44fc8b" class="block-color-gray_background">Cue</h3><p id="29ece6c1-f051-807f-bdd3-f5ace491ed00" class="">If model blows up, an eta_99999 file will be printed:</p><ul id="29ece6c1-f051-80b8-9bcb-e19c864714bb" class="bulleted-list"><li style="list-style-type:disc">if the model blows up in deep water, increase CFL;</li></ul><ul id="29ece6c1-f051-807d-a2d9-deb324526e68" class="bulleted-list"><li style="list-style-type:disc">If in shallow water, check FroudeCap: FrouderCap of 1.0 is considered critical, ideally 1.0 &lt; FroudeCap &lt; 3.0</li></ul></div><div id="1aece6c1-f051-810c-9f3a-c942679a4850" style="width:56.25%" class="column"><h3 id="1aece6c1-f051-81a0-8b32-e0868e137a32" class="block-color-gray_background">Notes</h3><h1 id="29ece6c1-f051-80b3-b4ca-fa4addedf962" class="">1. Recommendation</h1><p id="29ece6c1-f051-80cd-b12b-d7532c69dcde" class="">The wavelength $\lambda$ must be at least twice the water depth $h$ ($\lambda &gt; 2h$) or the produce of the wavenumber $k$<br/>and water depth must be less than $\pi$ ($kh&lt;\pi$).</p><p id="29ece6c1-f051-8095-a9d5-f651f5680ad2" class="">sponger layer width is 2~3 times wave length $\lambda$.</p><p id="29ece6c1-f051-80bf-9753-fc57b35e9517" class="">$\frac{h}{15} &lt; DX &lt; \frac{\lambda}{60}$; suggest $\frac{h}{DX} \approx 10$</p><p id="29ece6c1-f051-80f6-a78e-e98132c9a137" class="">100 &lt; Mglob/px, Nglob/py &lt; 150.</p><p id="29ece6c1-f051-80c0-a130-f2916d41dde4" class="">BlowUp Time error</p><h1 id="29ece6c1-f051-80e6-ac55-c6562df11ba3" class="">2. Debugging</h1><p id="29ece6c1-f051-8061-bc81-d97c1e464519" class="">DOMAIN SIZING<br/>• Choose domain dimensions (in units of grid points) that translate to desired physical domain dimensions given chosen DX.<br/>o For instance: a physical rectangular basin with dimensions 200m west to east and 100m south to north can be represented in a 2D FUNWAVE-TVD domain with a DX =DY = 0.5 and dimensions mglob = 400 and nglob = 200.</p><ul id="29ece6c1-f051-8092-8382-c504c356f54b" class="bulleted-list"><li style="list-style-type:disc">Choose domain dimensions (in units of grid points) that translate to desired physical domain dimensions given chosen<br/>DX.<br/>o For instance: a physical rectangular basin with dimensions 200m west to east and 100m south to north can be represented in a 2D FUNWAVE-TVD domain with a DX =<br/>DY = 0.5 and dimensions mglob = 400 and nglob = 200.</li></ul><ul id="29ece6c1-f051-8034-92b9-f9dac1d799d9" class="bulleted-list"><li style="list-style-type:disc">Discreize the domain appropriately - choose DX and DY that satisfy known constraints.</li></ul><ul id="29ece6c1-f051-8097-b302-d0e9b2c40438" class="bulleted-list"><li style="list-style-type:disc">Check that DX (m/grid points) satisfies the inequalities:<br/>h/15＜DX ＜ λ/60.<br/>o Suggested that h/DX ~ 10.<br/>o Recommended at least 30 points per peak wavelength with preference for 60 to 70 points per wavelength.</li></ul><p id="29ece6c1-f051-8076-a2fa-fdca57d94519" class="">BlowUp Time<br/>• When MaxAbsEta &gt; 100h</p><p id="29ece6c1-f051-8033-a818-f7162eee38fa" class="">FAILURE MODES<br/>NaN in Statistics error (catch all)<br/>• When a value(s) becomes so large that the number cannot be stored in memory</p><p id="29ece6c1-f051-8091-810f-e21f8389d92c" class="">TROUBLESHOOTING RECOMMENDATIONS</p><p id="29ece6c1-f051-8040-9c42-e20220ed3569" class="">APPENDIX: QUICK TROUBLESHOOTING GUIDE<br/>General steps. Listed below are a basic order of steps to follow when attempting to stabilize a simulation. Re-run the simulation with the recommended changes at each step. If still unstable, move to the next step, reum, and repeat as needed:</p><ol type="1" id="29ece6c1-f051-8041-b79c-ebcbc0718d04" class="numbered-list" start="1"><li>Review input wave, water level, and spatial resolution conditions per Torres et al. (2022)</li></ol><ol type="1" id="29ece6c1-f051-80d5-9fa0-dd8ea3832ef7" class="numbered-list" start="2"><li>Reduce CFL to 0.25 and FroudeCap to 1.5</li></ol><ol type="1" id="29ece6c1-f051-80b1-bb5c-e8d7845b32cb" class="numbered-list" start="3"><li>Reduce CFL to 0.1</li></ol><ol type="1" id="29ece6c1-f051-80f2-a1a8-ee9de77591bf" class="numbered-list" start="4"><li>Us built-in localized topobathy smoothing<br/>a. BATHY CORRECTION = T<br/>b. SmoothBelowDepth = - 1,0<br/>c. SlopeCap = 1.0</li></ol><ol type="1" id="29ece6c1-f051-80be-b562-e247ad3f97a7" class="numbered-list" start="5"><li>Manually smooth data using some global technique, for example, Gaussian filter/smoother (see FUNTAVE_TVD/tools/filter in GitHub repository)</li></ol><ol type="1" id="29ece6c1-f051-8037-b7e0-c9d0e28fb7de" class="numbered-list" start="6"><li>Manually adjust topobathy data in the problem region</li></ol><ol type="1" id="29ece6c1-f051-80c9-8398-f4bdfef7a51b" class="numbered-list" start="7"><li>Submit you problem to the FUNWAVE User Group listserv. Signup is available on the Wiki.</li></ol><p id="29ece6c1-f051-802e-b683-e9a8315e87d7" class="">Visualzing problem area. If identifying the instability from visualizing the *_99999 files is challenging follow the below steps:</p><ol type="1" id="29ece6c1-f051-80e6-82ff-f80475ca7e9a" class="numbered-list" start="1"><li>Get instability time from LOG.txt (Figure 2. BlowUp Time).</li></ol><ol type="1" id="29ece6c1-f051-8041-b7f2-cd758f18d4a8" class="numbered-list" start="2"><li>Set PLOT_START_TIME to just before instability time. Use last valid outputs as a guide.</li></ol><ol type="1" id="29ece6c1-f051-8035-8934-eea33b9d99c4" class="numbered-list" start="3"><li>Roduce PLOT_INTY, for example, 10-30 plots between PLOT_START_TIME and instability time. Visualize output.</li></ol><ol type="1" id="29ece6c1-f051-80d5-9e34-fcbe390621a7" class="numbered-list" start="4"><li>Repeat if necessary further adjusting PLOT_START_TIME and PLOT_ INTV.</li></ol><ul id="29ece6c1-f051-80c2-b310-cb5b530c9ec2" class="bulleted-list"><li style="list-style-type:disc">CFL &lt; 0.5</li></ul><ul id="29ece6c1-f051-8028-865e-d2ac52383985" class="bulleted-list"><li style="list-style-type:disc">Check LOG.txt for Froude number.</li></ul><ul id="29ece6c1-f051-80d0-8051-ee08875a04ab" class="bulleted-list"><li style="list-style-type:disc">If the model &quot;blows up&quot;, an eta _99999 file will be printed.</li></ul><ul id="29ece6c1-f051-8071-9523-e54f65680977" class="bulleted-list"><li style="list-style-type:disc">If the model blows up in deep water, increase CFL.</li></ul><ul id="29ece6c1-f051-809e-a049-dd0a5768ec75" class="bulleted-list"><li style="list-style-type:disc">CFL &lt; 0.5</li></ul><ul id="29ece6c1-f051-80f5-ac61-de98da748d26" class="bulleted-list"><li style="list-style-type:disc">Check LOG.txt for Froude number.</li></ul><ul id="29ece6c1-f051-8039-842d-cf1e99d57322" class="bulleted-list"><li style="list-style-type:disc">If the model &quot;blows up&quot;, an eta_ 99999 file will be printed.</li></ul><ul id="29ece6c1-f051-805b-8ee7-c80643a2caad" class="bulleted-list"><li style="list-style-type:disc">If the model blows up in deep water, increase CFL.</li></ul><ul id="29ece6c1-f051-8063-bb5f-fe6a7efab0df" class="bulleted-list"><li style="list-style-type:disc">If the model blows up in shallow water, check FroudeCap</li></ul><ul id="29ece6c1-f051-80d0-b557-c7f14b9875a9" class="bulleted-list"><li style="list-style-type:disc">CFL &lt; 0.5</li></ul><ul id="29ece6c1-f051-80cb-99b9-fd68c8ea3f46" class="bulleted-list"><li style="list-style-type:disc">Check LOG.txt for Froude number.</li></ul><ul id="29ece6c1-f051-808f-8b0b-ec8fe8ce0b9f" class="bulleted-list"><li style="list-style-type:disc">If the model &quot;blows up&quot;, an eta _99999 file will be printed.</li></ul><ul id="29ece6c1-f051-8071-a93a-f0fd5aa17b43" class="bulleted-list"><li style="list-style-type:disc">If the model blows up in deep water, increase CFL.</li></ul><ul id="29ece6c1-f051-80ac-addb-f7431d167721" class="bulleted-list"><li style="list-style-type:disc">If the model blows up in shallow water, check FroudeCap</li></ul><ul id="29ece6c1-f051-8007-bf6d-ef80251b8b70" class="bulleted-list"><li style="list-style-type:disc">FroudeCap of 1.0 is considered critical.</li></ul><ul id="29ece6c1-f051-8017-9c36-c53d82e530d7" class="bulleted-list"><li style="list-style-type:disc">Ideally: 1.0 &lt; FroudeCap &lt; 3.0</li></ul><p id="29ece6c1-f051-80c4-ac79-feb09e025186" class="">TROUBLE SHOOTING</p><p id="29ece6c1-f051-8071-b3bf-fca8353a0aad" class="">MaxEta and MinEta</p><ul id="29ece6c1-f051-80f1-8121-db39f9ab64e4" class="bulleted-list"><li style="list-style-type:disc">If MinEla values steadily decrease below the input wave height or reach the water depth, this may indicate or be a precursor to an instability Max U and Max V</li></ul><ul id="29ece6c1-f051-801f-adde-c2d552bc4891" class="bulleted-list"><li style="list-style-type:disc">Unrealistic (eg., very large) values for Max U and Max V can indicate a fundamental error in the setup of the simulation</li></ul><ul id="29ece6c1-f051-801c-86b9-e4b74144e92d" class="bulleted-list"><li style="list-style-type:disc">Large values may not always trigger a failure mode<br/>Froude<br/>• If Froude ≥ FroudeCap (1.0 - 3.0) indicates instability</li></ul><p id="29ece6c1-f051-80f6-81c1-cf0ec8c99a09" class="">Mass Volume</p><ul id="29ece6c1-f051-80c2-9767-e260bda924da" class="bulleted-list"><li style="list-style-type:disc">If water appears to be draining from the domain over the course of the simulation, there is likely an imbalance in the mass conservation formulation related to wetting/drying.</li></ul><ul id="29ece6c1-f051-80fa-8548-ee84ba6d7c59" class="bulleted-list"><li style="list-style-type:disc">Change in MassVolume &gt;10% is considered significant</li></ul><ul id="29ece6c1-f051-8044-98e9-d78286753c6c" class="bulleted-list"><li style="list-style-type:disc">Gaps between bathymetry/topography and boundary edges may be a source of imbalance or instability</li></ul><p id="29ece6c1-f051-80b0-8a24-c6814e8e88d4" class="">POTENTIAL SOURCES OF INSTABILITY<br/>Bathymetry</p><ul id="29ece6c1-f051-8093-bb90-f3fbe00f56aa" class="bulleted-list"><li style="list-style-type:disc">Rapid changes in bathymetry and steep slopes are challenging for Boussinesa models</li></ul><ul id="29ece6c1-f051-80d5-80c8-d8d25157d851" class="bulleted-list"><li style="list-style-type:disc">Apply localized or global smoothing to reduce or eliminate &quot;jumps&quot; in bathy</li></ul><ul id="29ece6c1-f051-8083-9c25-eec5f1087607" class="bulleted-list"><li style="list-style-type:disc">If instability still occurs after global smoothing</li></ul><ul id="29ece6c1-f051-8090-b2f8-d462438fc365" class="bulleted-list"><li style="list-style-type:disc">Consider manual modification of the bathymetry, or</li></ul><ul id="29ece6c1-f051-804e-9237-fa84f74dab29" class="bulleted-list"><li style="list-style-type:disc">Revisit input bathymetry to identify potential issues</li></ul><ul id="29ece6c1-f051-80c6-b8dc-cb74c7e1ac94" class="bulleted-list"><li style="list-style-type:disc">e.g, incorrectly merged bathymetry sources, leading to stair-stepping of values</li></ul><p id="29ece6c1-f051-8023-96dd-e29d1c9d67f9" class="">Wetting/Drying</p><ul id="29ece6c1-f051-80b5-bbf2-d802415644e4" class="bulleted-list"><li style="list-style-type:disc">Model initializes with a thin layer of fluid everywhere in the domain, including areas above the still water line</li></ul><ul id="29ece6c1-f051-8014-99c1-d6dbdbf92a4d" class="bulleted-list"><li style="list-style-type:disc">Model numerically dries grid points that are below a specified depth threshold of thickness (MinDepth)</li></ul><ul id="29ece6c1-f051-80d3-85b0-f2c33b3f5694" class="bulleted-list"><li style="list-style-type:disc">Sections of emergent topography experiencing intermittent or limited wetting events are susceptible to either BlowUp Time or NaN in Statistics failure mode</li></ul><ul id="29ece6c1-f051-80b0-9d9c-e9706e402bb4" class="bulleted-list"><li style="list-style-type:disc">Ex: &quot;dry&quot; bucket behind the levee experienced intermittent inundation due to overtopping, causing a seich in the bucket that accelerated a MaxAbsEta failure mode.</li></ul><ul id="29ece6c1-f051-803d-9232-fbd4dd0cf4c5" class="bulleted-list"><li style="list-style-type:disc">Increasing surface friction in problem areas may help dampen wave energy and prevent instability.</li></ul><p id="29ece6c1-f051-8017-b097-c2a3c4fae566" class="">Potential solutions:</p><ul id="29ece6c1-f051-80f8-b333-fbb1f96e2cab" class="bulleted-list"><li style="list-style-type:disc">Adjust thickness of fluid (MinDepth)</li></ul><ul id="29ece6c1-f051-8081-a912-f80c4cee8165" class="bulleted-list"><li style="list-style-type:disc">Recommended minimum: 0.01</li></ul><ul id="29ece6c1-f051-80fe-8100-cbe6cbf0c4c4" class="bulleted-list"><li style="list-style-type:disc">Increasing MinDepth decreases sensitivity of the wetting/drying condition</li></ul><ul id="29ece6c1-f051-80f7-aaab-fbe844c703ef" class="bulleted-list"><li style="list-style-type:disc">If wave runup is of interest, reducing the MinDepth yields a more accurate solution but may be less stable, particularly on steep slopes.</li></ul><ul id="29ece6c1-f051-807e-a158-c541899881d7" class="bulleted-list"><li style="list-style-type:disc">Adjust elevation (topobathy) in problem area</li></ul><ul id="29ece6c1-f051-80c9-bd7a-d614365625de" class="bulleted-list"><li style="list-style-type:disc">Adjust initial water level elevation</li></ul><p id="29ece6c1-f051-808f-b996-c947187422e0" class="">GENERAL RECOMMENDATIONS<br/>Station files</p><ul id="29ece6c1-f051-8039-abba-cf5bed0e28be" class="bulleted-list"><li style="list-style-type:disc">ASCI text file where each row specifies the location of a station in FUNWAVE (i,j) coordinates</li></ul><ul id="29ece6c1-f051-8087-8a7a-e21860fb186a" class="bulleted-list"><li style="list-style-type:disc">NEW Station OutputBuffer parameter stores data in memory until buffer limit is reached, then prints to stations output<br/>file (sta_ xxxx)</li></ul><ul id="29ece6c1-f051-803e-b649-f91d3a2f7fbd" class="bulleted-list"><li style="list-style-type:disc">Default: StationOutputBuffer = 1000 (int)</li></ul><ul id="29ece6c1-f051-8066-8b61-cb315f48eebd" class="bulleted-list"><li style="list-style-type:disc">Extra zeroes can be printed in the station files if the runtime is less than the buffer time</li></ul><ul id="29ece6c1-f051-8061-8912-fc2781385eef" class="bulleted-list"><li style="list-style-type:disc">Dt is dynamic, not constant, between outputs</li></ul><p id="29ece6c1-f051-8081-8f51-df877ec9e242" class="">Use periodic boundary conditions in 2D where appropriate</p><ul id="29ece6c1-f051-809e-9a48-d4e2b71dd2cc" class="bulleted-list"><li style="list-style-type:disc">This allows for waves to propagate throughout the whole domain once a sea state develops</li></ul><ul id="29ece6c1-f051-8004-bd59-ded79e7c805a" class="bulleted-list"><li style="list-style-type:disc">If using periodic boundary conditions, the domain and bathymetry must also be periodic.</li></ul><ul id="29ece6c1-f051-8068-8636-d086030da8b3" class="bulleted-list"><li style="list-style-type:disc">&quot;Wrapping&quot; bathymetry boundaries creates smooth variation along the lateral boundaries so that the north lateral boundary is continuous with the south lateral boundary.</li></ul><ul id="29ece6c1-f051-80f7-a0ee-c968a07dfd10" class="bulleted-list"><li style="list-style-type:disc">Sharp changes in bathymetry must be smoothed.</li></ul><ul id="29ece6c1-f051-80a8-90e1-d71f25364c26" class="bulleted-list"><li style="list-style-type:disc">If not using periodic boundary conditions, be sure to use sponge layers.</li></ul><ul id="29ece6c1-f051-80cc-8046-ccb98c1ea2db" class="bulleted-list"><li style="list-style-type:disc">This is not always recommended because some energy is lost to the sponges.</li></ul><p id="29ece6c1-f051-8073-a995-fe15b425c558" class="">Don&#x27;t let your sponge layer overlap with the wavemaker location!</p><p id="29ece6c1-f051-80eb-bf4f-f91fa9f0b45f" class="">Advise H/h &lt; 0.5<br/>• If you exceed this value, generated waves can break within the wavemaker.</p><p id="29ece6c1-f051-80af-aa3e-fadf5d676657" class="">Bathymetry, friction, breakwater, and obstacle files all must be of same dimensions (mglob x nglob)</p><p id="29ece6c1-f051-808c-937b-fc3d97191f41" class="">For bathymetry, check that slopes are below  π/2.<br/>• Steep bathymetry can cause the development of instabilities.</p></div></div><hr id="1aece6c1-f051-80fa-9d81-dd641be534ec"/><h3 id="1e6ce6c1-f051-80c0-a754-ed8a22c59d56" class="block-color-gray_background">Run MATLAB code</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1e6ce6c1-f051-8069-9ee3-c7eee39abcfa"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ol type="1" id="1e6ce6c1-f051-8095-8484-d9ea0eecdb8f" class="numbered-list" start="1"><li>generate compile.sh<p id="1e6ce6c1-f051-8002-a714-e922a6520354" class="">#!/bin/sh</p><p id="1e6ce6c1-f051-8033-b10f-e4ebc688939e" class="">module load matlab</p><p id="1e6ce6c1-f051-8064-8a02-cb1d090d1626" class="">mcc -v -R -nodisplay -R -singleCompThread -m ./gen_data_folder.m</p><p id="1e6ce6c1-f051-8056-8bcf-c10ee16d7f2a" class="">Notice: gen_data_folder.m is your main program .m file; modify it to match your file name.</p></li></ol><ol type="1" id="1e6ce6c1-f051-805f-9f89-d10e690961ac" class="numbered-list" start="2"><li>upload matlab folder to HPC (contains compile.sh, Job_matlab.sh, matlab .m file)<p id="1e6ce6c1-f051-802d-a78d-f2281a114a61" class="">Notice: in Job_matlab.sh, modify to match your file name.</p></li></ol><ol type="1" id="1e6ce6c1-f051-806d-b335-c085f9bf0b57" class="numbered-list" start="3"><li>cd matlab</li></ol><ol type="1" id="1e6ce6c1-f051-801c-bf21-d104bd5d51ac" class="numbered-list" start="4"><li>chmod +x <a href="http://compile.sh/">compile.sh</a></li></ol><ol type="1" id="1e6ce6c1-f051-80d5-9f3f-e81b4c72968f" class="numbered-list" start="5"><li>./compile.sh (generate gen_data_folder executive file)</li></ol><ol type="1" id="1e6ce6c1-f051-8028-b1b3-d1a7acbc9593" class="numbered-list" start="6"><li>sbatch Job_matlab.sh</li></ol><p id="1e6ce6c1-f051-8039-93c0-e78f80c48892" class=""><strong>Notice: copile.sh, Job_matlab.sh and .m file name must be consistent.</strong></p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e6ce6c1-f051-8048-ac9b-d4f02182b3c2" class="code code-wrap"><code class="language-Bash" style="white-space:pre-wrap;word-break:break-all">#!/bin/sh
+#SBATCH --job-name=gen_data_folder
+#SBATCH --mail-type=ALL              # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=kaileicao0925@ufl.edu  # Where to send mail 
+#SBATCH --nodes=3
+#SBATCH --ntasks=96
+#SBATCH --ntasks-per-node=32         # Maximum number of tasks on each node     
+#SBATCH --cpus-per-task=1            # Number of CPU cores per task
+#SBATCH --distribution=cyclic:cyclic
+#SBATCH --mem=150gb                    # Total memory limit
+#SBATCH --time=12:00:00              # Time limit hrs:min:sec
+#SBATCH --output=FW_%j.out     # Standard output and error log
+#SBATCH --qos=ashere-b       # burst mode
+
+module load matlab
+
+./gen_data_folder</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

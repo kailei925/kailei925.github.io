@@ -10,6 +10,21 @@
         <a aria-label="My WeChat" href="#" onclick="alert('Contact me via wechat：xiaomenglei925'); return false;"><i class="icon fa fa-weixin" aria-hidden="true"></i></a>
         <a aria-label="My Github" target="_blank" href="https://github.com/kailei925"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
         <a aria-label="My YouTube" target="_blank" href="https://www.youtube.com/@%E4%B8%80%E7%82%B9%E4%B9%9F%E5%AD%A6%E4%B8%8D%E4%BC%9A%E6%95%B0%E5%AD%A6"><i class="icon fa fa-youtube" aria-hidden="true"></i></a>
+        <a aria-label="My WeChat" href="#" onclick="toggleWechatQR(); return false;">
+  <i class="icon fa fa-weixin" aria-hidden="true"></i>
+</a>
+
+<div id="wechat-qr" style="display:none; position:absolute; z-index:100; border:1px solid #ccc; padding:5px; background:#fff;">
+  <img src="/assets/img/WeChat.jpg" alt="扫描加微信" width="150">
+</div>
+
+<script>
+function toggleWechatQR() {
+  const qr = document.getElementById('wechat-qr');
+  qr.style.display = qr.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
       </div>
       <div class="header-links">
         <a class="link" href="#about" data-scroll>About Me</a>
